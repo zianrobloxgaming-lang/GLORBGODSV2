@@ -1,0 +1,142 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+}
+
+:root {
+  --background: #f0fdfa; 
+  --foreground: #083344; 
+  
+  --primary: #06b6d4; 
+  --primary-foreground: #ffffff;
+  
+  --card: #ffffff;
+  --card-foreground: #083344;
+  
+  --muted: #cffafe; 
+  --muted-foreground: #0e7490; 
+  
+  --border: #67e8f9; 
+}
+
+.mix-calculator {
+  width: min(100%, 68rem);
+  margin: 0 auto;
+}
+
+
+
+
+
+
+.mix-calculator__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: var(--card);
+  
+}
+
+.mix-calculator__choices,
+.mix-calculator__answer {
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+}
+
+.mix-field {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.7fr) minmax(12rem, 1.3fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #cffafe;
+}
+
+
+
+.mix-field select {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid #a5f3fc;
+  border-radius: 0.75rem;
+  outline: none;
+  background: #ecfeff;
+  padding: 0 2.5rem 0 0.9rem;
+  color: var(--foreground);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mix-field select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgb(6 182 212 / 0.18);
+}
+
+.mix-calculator__answer {
+  background: #0891b2;
+  color: white;
+}
+
+.mix-calculator__total {
+  margin: 0 0 1.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.22);
+}
+
+.mix-calculator__total > span,
+.mix-calculator__water-total > span {
+  display: block;
+  color: rgb(255 255 255 / 0.7);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mix-calculator__total strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.mix-calculator__total p {
+  margin: 0.55rem 0 0;
+  color: #a5f3fc;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.mix-calculator__water-total strong {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .mix-calculator__panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .mix-field {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+}
